@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 #personal apps
 INSTALLED_APPS+=[
     "gemni",
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
