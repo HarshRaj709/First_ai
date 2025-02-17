@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS+=[
     "gemni",
     'rest_framework',
+    'drf_yasg'
 ]
 
 MIDDLEWARE = [
