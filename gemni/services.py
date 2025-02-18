@@ -9,6 +9,7 @@ def generate_travel_suggestions(form_data, ai_client):
     budget = form_data.get('budget')
     transport = form_data.get('transport')
     duration = form_data.get('duration')
+    # print(visitor_type,interest)
 
     sys_instruction = f"""
     You are a travel agent who knows every tourist attraction in Lucknow, like 'Imambada', 'Roomigate', 'Gautam Buddha Park', and more.
@@ -28,6 +29,7 @@ def generate_travel_suggestions(form_data, ai_client):
         config=types.GenerateContentConfig(system_instruction=sys_instruction),
         contents=["Suggest tourist spots based on the following preferences."]
     )
+    # print(response.text)
     return response.text
 
 def format_response(response_text):

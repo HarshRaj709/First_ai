@@ -11,7 +11,7 @@
             font-family: 'Arial', sans-serif;
         }
         .container {
-            max-width: 100%%;
+            max-width: 100%;
             margin: auto;
             padding: 20px;
         }
@@ -60,91 +60,105 @@
         button:hover {
             background-color: #0056b3;
         }
-        .text-center h2 {
-            color: #007BFF;
-            font-weight: bold;
-            margin-bottom: 2rem;
-            font-size: 2.5em;  
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            background: linear-gradient(to right, #007BFF, #0056b3); 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 10px 0; 
+        .history-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 100%;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2 class="text-center">Plan Your Lucknow Tours</h2>
-        <form class="card shadow-sm" action="{% url 'home' %}" method="POST">
-            <div class="card-header">Tour Preferences</div>
-            <div class="card-body">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="visitor_type">I am a:</label>
-                    <select id="visitor_type" name="visitor_type" class="form-control" required>
-                        <option value="student">Student</option>
-                        <option value="couple">Couple</option>
-                        <option value="family">Family</option>
-                        <option value="solo">Solo Traveler</option>
-                        <option value="business">Business Traveler</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="interest">I am interested in:</label>
-                    <select id="interest" name="interest" class="form-control" required>
-                        <option value="heritage">Heritage & History</option>
-                        <option value="nature">Nature & Parks</option>
-                        <option value="culture">Cultural & Arts</option>
-                        <option value="food">Food & Restaurants</option>
-                        <option value="shopping">Shopping</option>
-                        <option value="adventure">Adventure & Fun</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="time">Preferred time to visit:</label>
-                    <select id="time" name="time" class="form-control" required>
-                        <option value="morning">Morning</option>
-                        <option value="afternoon">Afternoon</option>
-                        <option value="evening">Evening/Night</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="budget">Budget Range:</label>
-                    <select id="budget" name="budget" class="form-control" required>
-                        <option value="low">Low Budget</option>
-                        <option value="medium">Medium Budget</option>
-                        <option value="luxury">Luxury Budget</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="transport">Mode of Transport:</label>
-                    <select id="transport" name="transport" class="form-control" required>
-                        <option value="walking">Walking Distance</option>
-                        <option value="bike">Bike</option>
-                        <option value="car">Car/Taxi</option>
-                        <option value="metro">Metro</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="duration">Duration of Visit:</label>
-                    <select id="duration" name="duration" class="form-control" required>
-                        <option value="short">1-2 hours</option>
-                        <option value="half_day">Half-day (4-6 hours)</option>
-                        <option value="full_day">Full-day Trip</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Find Places</button>
+        <div class="row">
+            <!-- Tour Preferences Form -->
+            <div class="col-md-8">
+                <h2 class="text-center">Plan Your Lucknow Tours</h2>
+                <form class="card shadow-sm" action="{% url 'home' %}" method="POST">
+                    <div class="card-header">Tour Preferences</div>
+                    <div class="card-body">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="visitor_type">I am a:</label>
+                            <select id="visitor_type" name="visitor_type" class="form-control" required>
+                                <option value="student">Student</option>
+                                <option value="couple">Couple</option>
+                                <option value="family">Family</option>
+                                <option value="solo">Solo Traveler</option>
+                                <option value="business">Business Traveler</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="interest">I am interested in:</label>
+                            <select id="interest" name="interest" class="form-control" required>
+                                <option value="heritage">Heritage & History</option>
+                                <option value="nature">Nature & Parks</option>
+                                <option value="culture">Cultural & Arts</option>
+                                <option value="food">Food & Restaurants</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="adventure">Adventure & Fun</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="time">Preferred time to visit:</label>
+                            <select id="time" name="time" class="form-control" required>
+                                <option value="morning">Morning</option>
+                                <option value="afternoon">Afternoon</option>
+                                <option value="evening">Evening/Night</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="budget">Budget Range:</label>
+                            <select id="budget" name="budget" class="form-control" required>
+                                <option value="low">Low Budget</option>
+                                <option value="medium">Medium Budget</option>
+                                <option value="luxury">Luxury Budget</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="transport">Mode of Transport:</label>
+                            <select id="transport" name="transport" class="form-control" required>
+                                <option value="walking">Walking Distance</option>
+                                <option value="bike">Bike</option>
+                                <option value="car">Car/Taxi</option>
+                                <option value="metro">Metro</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="duration">Duration of Visit:</label>
+                            <select id="duration" name="duration" class="form-control" required>
+                                <option value="short">1-2 hours</option>
+                                <option value="half_day">Half-day (4-6 hours)</option>
+                                <option value="full_day">Full-day Trip</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Find Places</button>
+                    </div>
+                </form>
             </div>
-        </form>
+            
+            <!-- User History Section -->
+            <div class="col-md-4">
+                <div class="history-section">
+                    <h4 class="text-center text-primary">Your Previous Searches</h4>
+                    {% if history %}
+                        <ul class="list-group">
+                            {% for item in history %}
+                                <label><li class="list-group-item">{{ item.visitor_type }}</li></label>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="text-muted text-center">No previous searches found.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
