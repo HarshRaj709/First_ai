@@ -17,6 +17,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('gemni.urls')),
-    path('api/',include('gemni.api.urls')),
+    path('api/plan/',include('gemni.api.urls')),
+    path('api/auth/',include('auth.api.urls')),
     path('swagger/',schema_view.with_ui(cache_timeout=0),name='swagger')
 ]
