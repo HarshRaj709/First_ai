@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from gemni.models import UserHistory
 
 class FormSerializer(serializers.Serializer):
     VISITOR_CHOICES = [
@@ -45,3 +46,9 @@ class FormSerializer(serializers.Serializer):
     budget = serializers.ChoiceField(choices = BUDGET_CHOICES)
     transport = serializers.ChoiceField(choices = TRANSPORT_CHOICES)
     duration = serializers.ChoiceField(choices = DURATION_CHOICES)
+
+
+class UserHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserHistory
+        fields = '__all__'

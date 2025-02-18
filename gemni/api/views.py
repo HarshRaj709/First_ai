@@ -1,11 +1,12 @@
 from rest_framework.response import Response
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView,ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from gemni.ai_client import GoogleAIClient
-from .serializers import FormSerializer
+from .serializers import FormSerializer, UserHistorySerializer
 from rest_framework import status
 from ai.settings import api_key
 from gemni.services import generate_travel_suggestions,format_response
+from gemni.models import UserHistory
 
 
 class form(CreateAPIView):
@@ -27,3 +28,7 @@ class form(CreateAPIView):
             return Response({'Error':serializer.errors},status=status.HTTP_400_BAD_REQUEST)
 
 
+class UserSearch(ListAPIView):
+    serializer_class = UserHistorySerializer
+    permission_classes = [IsAuthenticated]
+    queryset = UserHistory.objects.all()

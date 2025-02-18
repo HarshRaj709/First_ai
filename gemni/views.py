@@ -7,6 +7,7 @@ from .services import generate_travel_suggestions, format_response
 from ai.settings import api_key
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -49,7 +50,7 @@ def UserLogin(request):
        
         return render(request, 'gemni/login.html')
 
-
+@login_required(login_url='login')
 def form(request):
     if request.method == 'POST':
         form = InfoForm(request.POST)
